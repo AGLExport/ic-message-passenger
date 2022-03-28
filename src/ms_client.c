@@ -12,9 +12,9 @@
 
 int main(int argc, char *argv[]) {
     struct sockaddr_un addr;
-    int ret;
+    int ret,req;
     int data_socket;
-    char buffer[BUFFER_SIZE];
+    char buffer[BUFFER_SIZE*2];
 
 
     data_socket = socket(AF_UNIX, SOCK_SEQPACKET, AF_UNIX);
@@ -37,8 +37,55 @@ int main(int argc, char *argv[]) {
     }
 
 
-	while(1) sleep(1);
+	while(1) {;
+	req = BUFFER_SIZE;
+	ret = read(data_socket, buffer, req);
+	fprintf(stderr,"rcv size = %d (req: %d) topdata=%x\n", ret, req, buffer[0]);
 	
+	req = BUFFER_SIZE/2;
+	ret = read(data_socket, buffer, req);
+	fprintf(stderr,"rcv size = %d (req: %d) topdata=%x\n", ret, req, buffer[0]);
+
+	req = BUFFER_SIZE/2;
+	ret = read(data_socket, buffer, req);
+	fprintf(stderr,"rcv size = %d (req: %d) topdata=%x\n", ret, req, buffer[0]);
+	
+	req = BUFFER_SIZE*2;
+	ret = read(data_socket, buffer, req);
+	fprintf(stderr,"rcv size = %d (req: %d) topdata=%x\n", ret, req, buffer[0]);
+	
+	req = BUFFER_SIZE/8;
+	ret = read(data_socket, buffer, req);
+	fprintf(stderr,"rcv size = %d (req: %d) topdata=%x\n", ret, req, buffer[0]);
+
+	req = BUFFER_SIZE/8;
+	ret = read(data_socket, buffer, req);
+	fprintf(stderr,"rcv size = %d (req: %d) topdata=%x\n", ret, req, buffer[0]);
+
+	req = BUFFER_SIZE/8;
+	ret = read(data_socket, buffer, req);
+	fprintf(stderr,"rcv size = %d (req: %d) topdata=%x\n", ret, req, buffer[0]);
+
+	req = BUFFER_SIZE/8;
+	ret = read(data_socket, buffer, req);
+	fprintf(stderr,"rcv size = %d (req: %d) topdata=%x\n", ret, req, buffer[0]);
+
+	req = BUFFER_SIZE/8;
+	ret = read(data_socket, buffer, req);
+	fprintf(stderr,"rcv size = %d (req: %d) topdata=%x\n", ret, req, buffer[0]);
+
+	req = BUFFER_SIZE/8;
+	ret = read(data_socket, buffer, req);
+	fprintf(stderr,"rcv size = %d (req: %d) topdata=%x\n", ret, req, buffer[0]);
+
+	req = BUFFER_SIZE/8;
+	ret = read(data_socket, buffer, req);
+	fprintf(stderr,"rcv size = %d (req: %d) topdata=%x\n", ret, req, buffer[0]);
+
+	req = BUFFER_SIZE/8;
+	ret = read(data_socket, buffer, req);
+	fprintf(stderr,"rcv size = %d (req: %d) topdata=%x\n", ret, req, buffer[0]);
+	}
 	
     close(data_socket);
 
