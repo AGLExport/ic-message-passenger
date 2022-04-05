@@ -90,4 +90,6 @@ int main(int argc, char *argv[]) {
     close(data_socket);
 
 
-    exit(EXIT_SUCCESS); } 
+	return 0;
+}
+	

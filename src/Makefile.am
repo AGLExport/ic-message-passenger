@@ -9,12 +9,16 @@ ms_server_SOURCES = \
 # options
 # Additional library
 ms_server_LDADD = \
-		-lrt -lpthread 
+		-lrt -lpthread \
+		@GLIB2_LIBS@ \
+		@GIO2_LIBS@
 
 # C compiler options
 ms_server_CFLAGS = \
 		-I$(top_srcdir)/include \
-		-D_GNU_SOURCE 
+		@GLIB2_CFLAGS@ \
+		@GIO2_CFLAGS@ \
+		-D_GNU_SOURCE
 
 # Linker options
 ms_server_LDFLAGS = 
@@ -27,11 +31,16 @@ ms_client_SOURCES = \
 # options
 # Additional library
 ms_client_LDADD = \
-		-lrt -lpthread 
+		-lrt -lpthread \
+		@GLIB2_LIBS@ \
+		@GIO2_LIBS@
 
 # C compiler options
 ms_client_CFLAGS = \
-		-I$(top_srcdir)/include 
+		-I$(top_srcdir)/include \
+		@GLIB2_CFLAGS@ \
+		@GIO2_CFLAGS@ \
+		-D_GNU_SOURCE
 
 # Linker options
 ms_client_LDFLAGS = 

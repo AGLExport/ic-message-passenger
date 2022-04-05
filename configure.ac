@@ -36,8 +36,9 @@ LT_INIT
 AM_PROG_LIBTOOL 
 
 PKG_PROG_PKG_CONFIG
-PKG_CHECK_MODULES([GLIB], [glib-2.0 gthread-2.0])
-PKG_CHECK_MODULES([ZLIB], [zlib])
+PKG_CHECK_MODULES([GLIB2], [glib-2.0])
+PKG_CHECK_MODULES([GIO2], [gio-2.0])
+
 
 
 # Checks for header files.
